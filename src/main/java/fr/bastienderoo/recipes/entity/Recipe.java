@@ -1,6 +1,7 @@
 package fr.bastienderoo.recipes.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import fr.bastienderoo.recipes.enums.Vege;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -24,6 +25,16 @@ public class Recipe {
     @JsonManagedReference
     private List<RecipeIngredient> recipeIngredients;
 
+
+    public Vege getVege() {
+        if(this.recipeIngredients.stream().anyMatch(recipeIngredient -> recipeIngredient.getIngredient().getIngredientType().getVege().equals(Vege.MEAT_OR_FISH))) {
+            return Vege.MEAT_OR_FISH;
+        }
+        if(this.recipeIngredients.stream().anyMatch(recipeIngredient -> recipeIngredient.getIngredient().getIngredientType().getVege().equals(Vege.VEGETARIAN))) {
+            return Vege.VEGETARIAN;
+        }
+        return Vege.VEGAN;
+    }
 
     @Override
     public boolean equals(Object o) {

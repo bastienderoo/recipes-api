@@ -9,5 +9,5 @@ public class RecipeIngredientDto {
     Long id;
     String unit;
     Double quantity;
-    IngredientDto ingredientDto;
+    IngredientDto ingredient;
 }

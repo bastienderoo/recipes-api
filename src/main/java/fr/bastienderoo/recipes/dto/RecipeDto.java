@@ -11,5 +11,6 @@ public class RecipeDto {
     Long id;
     String name;
     String picture;
-    List<RecipeIngredientDto> recipeIngredientDtos;
+    List<RecipeIngredientDto> recipeIngredients;
+    String vege;
 }

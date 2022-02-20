@@ -15,11 +15,12 @@ public interface RecipeMapper {
 
     RecipeMapper INSTANCE = Mappers.getMapper(RecipeMapper.class);
 
-    @Mapping(source = "recipeIngredients", target = "recipeIngredientDtos")
+    @Mapping(source = "recipeIngredients", target = "recipeIngredients")
     RecipeDto recipeToRecipeDto(Recipe recipe);
 
-    @Mapping(source = "ingredient", target = "ingredientDto")
+    @Mapping(source = "ingredient", target = "ingredient")
     RecipeIngredientDto recipeIngredientToRecipeIngredientDto(RecipeIngredient recipeIngredient);
 
     IngredientDto ingredientToIngredientDto(Ingredient ingredient);
+
 }
